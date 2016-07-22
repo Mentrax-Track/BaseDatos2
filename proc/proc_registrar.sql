@@ -17,16 +17,16 @@ create procedure registrarProducto (in nom varchar(20), in pre int, in stock int
   @
 
 /*Procedimiento para verificar un CI existente*/
-DROP PROCEDURE if EXISTS registrar;
+DROP PROCEDURE if EXISTS registrarCliente;
 
 delimiter @
 
-create procedure registrar (in nom varchar(20), in apelli varchar(20), in cis int, in password varchar(20))
+create procedure registrarCliente (in nom varchar(20), in apelli varchar(20), in cis int, in pass varchar(20))
 
   begin
     if not exists(select 1 from cliente where ci = cis)then 
             insert into cliente (id,nombre,apellido,ci,password)
-                values(default,nom,apelli,ci,password);
+                values(default,nom,apelli,cis,pass);
             select 0 as errno;
     else
         select 1 as errno;

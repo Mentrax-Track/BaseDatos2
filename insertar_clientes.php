@@ -30,7 +30,7 @@
 
                 $conexion = mysql_connect("localhost", "root", "");
                 mysql_select_db("proyecto", $conexion) or die ("Verifique la Base de Datos");            
-                $consulta = mysql_query("call registrar('$nombre','$apellido',$ci,'$password')",$conexion);
+                $consulta = mysql_query("call registrarCliente('$nombre','$apellido','$ci','$password')",$conexion);
                 $resultado = mysql_fetch_assoc($consulta);
 
                 if($resultado['errno']==1)
